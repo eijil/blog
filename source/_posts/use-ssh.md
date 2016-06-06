@@ -7,10 +7,7 @@ date: "2016-06-02 15:51"
 
 SSH是一种连接服务器的方式，使用SSH可以不必每次都输入用户名和密码
 
-## Add SSH key to Github
-
-> 介绍如何使用SSH来接连github和添加多个ssh-key
-
+## 一、 Add SSH key to Github
 
 ### Mac
 
@@ -54,7 +51,7 @@ Enter same passphrase again: [Type passphrase again]
 
 添加config文件
 
-进入.ssh目录 `$cd ~/.ssh`，使用vi 或者你喜欢的编辑器添加config文件,保存以下内容
+进入`~/.ssh`目录，使用vi或者你喜欢的编辑器添加`config`文件,保存以下内容
 
 ```
 Host github.com
@@ -101,6 +98,35 @@ windows下请使用[Cmder][Cmder]或者GitBash等命令行工具
 
 > ~/.ssh 等于 c:/Users/you/.ssh
 > 复制命令 clip <
+
+
+## 二、使用ssh公钥/私钥 实现免密码登录服务器
+
+一般我们连线上服务器可能会经过一层或多层堡垒机，可以通过SSH生成后的公钥传到服务器上来实现免密码登录。
+
+假如有两台服务器A 登录 B
+
+A : 192.168.146.95
+
+B : 172.22.213.13
+
+##### 1.在A服务器上生成ssh-key
+
+`$ssh-keygen -t rsa -C "your_email@example.com"`
+
+##### 2.将公钥传到B服务器`.ssh/authorized_keys`文件，使用`scp` 命令上传
+
+`scp ~/.ssh/id_rsa.pub 172.22.213.13:~/.ssh/authorized_keys`
+
+##### 3.如果前面步骤都做完，那现在就可以无密码登录了
+
+```
+  ssh 172.22.213.13
+  Last login: Mon Jun  6 15:04:46 2016 from 192.168.146.95
+
+```  
+
+
 
 
 [Cmder]: http://www.softpedia.com/get/Programming/Other-Programming-Files/Cmder.shtml
