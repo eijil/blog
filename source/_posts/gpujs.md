@@ -7,19 +7,19 @@ title: 使用GPU.js提升Javascript性能
 
 
 
-# 什么是GPU.js
+## 什么是GPU.js
 [GPU.js](https://gpu.rocks/#/)是一个JavaScript加速库，支持web或node中的javasctip使用GPGPU（GPU通用计算）。 GPU.js会自动将简单的JavaScript函数转换为着色器语言，并对其进行编译，使其能在您的GPU上运行，还有一个备用选项：在系统上没有 GPU 的情况下，这些功能仍将在常规 JavaScript引擎上运行。
 #### 性能提升多少？
 由于GPU本身非常擅长的是大规模并发计算，根据机器配置不同，计算速度能提高1-15倍，本文我会使用两个示例来对CPU版本和GPU版本的性能进行对比
 
 
-# 安装
+## 安装
 
 `Javascript`的库，都懂的。。。
 
 
 ``` javascript 
-# install
+## install
 npm install gpu.js --save
 
 //Node
@@ -38,7 +38,7 @@ const gpu = new GPU()
 ```
 
 
-# 使用
+## 使用
 
 先引用官方的示例，运行两个`512 x 512`的[矩阵乘法](https://mathsisfun.com/algebra/matrix-multiplying.html)算法，我们先实现一个未使用gpu的原生javascript实现的矩阵相乘，在对比使用GPU实现的区别，最后测试两个在本地执行的性能
 
@@ -135,7 +135,7 @@ kernel()
 
 
 
-## 性能对比
+### 性能对比
 
 接下来本地跑一下两个函数，看看性能有什么差别，我们使用[benchmark.js](https://www.npmjs.com/package/benchmark)来进行测试
 
@@ -170,7 +170,7 @@ suite
 
 
 
-# 图像处理
+## 图像处理
 
 有时我们想输出一个图片，而不是单纯的数值计算，那么我们可以设置`setGraphical(true)`，函数内部使用`this.color(0,0,0)`来设置像素点颜色。
 下面是一个例子生成一个20x20纯黑的canvas:
@@ -309,7 +309,7 @@ normalConvolution(imageData, edge, context)
 dom.appendChild(canvas) 
 ```
 
-## 执行效果对比
+### 执行效果对比
 
 以下是使用一张`7680x4320`大小的图片，我们看下对比效果
 
@@ -322,11 +322,11 @@ dom.appendChild(canvas)
 可以明显看到gpu版本是会比cpu版的执行速度是有很大的提升
 
 
-# 总结
+## 总结
 本文主要简单介绍GPU.js的使用方法和通过具体例子比较了cpu和gpu的性能对比，如果你的项目中有一些需要大量计算的程序，或许可以尝试使用，关于gpu.js更详细的使用还需要自行到官网了解，文章中涉及的代码已上传到[github](https://github.com/eijil/convolution_demo_width_gpujs/blob/master/convolution/src/App.js)，感兴趣可自行查看。
 
 
-# 参考
+## 参考
 [https://github.com/gpujs](https://github.com/gpujs)
 
 [https://en.wikipedia.org/wiki/Kernel_(image_processing)](https://en.wikipedia.org/wiki/Kernel_(image_processing))

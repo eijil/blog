@@ -13,6 +13,8 @@ about:
   title: Guestbook
   link: https://frankenstein-ashen.now.sh/
 
+toc: true
+
 show_toc_bool: false
 
 disqus_shortname: eijil
@@ -20,3 +22,4 @@ disqus_shortname: eijil
 excerpt_num: 150
 
 footer_info: © eijil 2015-2021
+
