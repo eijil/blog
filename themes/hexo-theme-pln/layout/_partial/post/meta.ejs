@@ -1,0 +1,33 @@
+<time datetime="<%= date_xml(item.date) %>" itemprop="datePublished">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="<%= width %>" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+    <%= item.date.format(config.date_format) %>
+</time>
+
+<% if (item.categories && item.categories.length){ %>
+    <div class="categories">
+        <% var cats = [];
+            item.categories.forEach(function(cat){
+            cats.push('<a href="' + config.root + cat.path + '">' + cat.name + '</a>');
+        });%>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="<%= width %>" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+        <%- cats.join('&nbsp;·&nbsp;') %>
+    </div>
+<% } %>
+
+
+<% if (item.tags && item.tags.length){ %>
+    <div class="tags">
+
+        <% var tags = [];
+        item.tags.forEach(function(tag){
+            tags.push('<a href="' + config.root + tag.path + '">' + tag.name + '</a>');
+        });%>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="<%= width %>" stroke-linecap="round" stroke-linejoin="round" class="feather feather-hash"><line x1="4" y1="9" x2="20" y2="9"></line><line x1="4" y1="15" x2="20" y2="15"></line><line x1="10" y1="3" x2="8" y2="21"></line><line x1="16" y1="3" x2="14" y2="21"></line></svg>
+        <%- tags.join('&nbsp;·&nbsp;') %>
+    </div>
+<% } %>
+
+<div class="reading">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="<%= width %>" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
+    <span id="busuanzi_value_page_pv">…</span>
+</div>

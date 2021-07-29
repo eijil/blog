@@ -1,0 +1,27 @@
+.index-title {
+    font-size: 34px;
+    line-height: 1.5;
+}
+
+.excerpt, .excerpt p, .echo {
+    font-size: 18px;
+    line-height: 1.95em;
+    letter-spacing: .6px;
+    color: hsl(0, 0%, var(--l-35));
+}
+.excerpt p {
+    margin: 0;
+    padding: 0
+}
+
+.index-meta {
+    padding-top: 1em;
+    padding-bottom: 60px;
+}
+
+@media screen and (max-width:782px) {
+    .excerpt, .excerpt p, .echo {
+        font-size: 16px;
+        line-height: 1.9em;
+    }
+}

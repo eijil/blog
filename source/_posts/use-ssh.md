@@ -1,5 +1,5 @@
 ---
-layout: "post"
+layout: post
 title: "use ssh"
 date: "2016-06-02 15:51"
 ---
@@ -130,3 +130,7 @@ B : 172.22.213.13
 
 
 [Cmder]: http://www.softpedia.com/get/Programming/Other-Programming-Files/Cmder.shtml
+
+---
+
+last

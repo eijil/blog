@@ -1,0 +1,57 @@
+@mixin tran($dg: 270deg) {
+    transform: rotate($dg);
+    -webkit-transform: rotate($dg);
+    -moz-transform: rotate($dg);
+    -o-transform: rotate($dg);
+}
+
+.right-foot {
+    display: flex;
+    align-items: center;
+    font-family: 'Pacifico', Arial, sans-serif;
+    position: fixed;
+    z-index: 0;
+    transform-origin: top right;
+    -webkit-transform-origin: top right;
+    -moz-transform-origin: top right;
+    -o-transform-origin: top right;
+    bottom: 0%;
+    right: calc(50% - 391px);
+    color: hsl(0, 0%, var(--l-25));
+    transform: rotate(270deg) translateX(100%);
+    -webkit-transform: rotate(270deg) translateX(100%);
+    -moz-transform: rotate(270deg) translateX(100%);
+    -o-transform: rotate(270deg) translateX(100%);
+}
+
+.firstrow,
+.secondrow {
+    display: flex;
+    align-items: center;
+}
+.firstrow {
+    margin-right: .5em;
+}
+.feather-arrow-up {
+    @include tran(90deg);
+}
+
+@media screen and (max-width:782px) {
+    .right-foot {
+        flex-direction: column;
+        font-size: 26px !important;
+        line-height: 35px;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin: 20px 0 30px;
+        @include tran(0);
+        text-align: center;
+    }
+    .feather-arrow-up {
+        @include tran(0);
+    }
+    .firstrow {
+        margin-right: 0;
+    }
+}

@@ -1,0 +1,49 @@
+.pager,
+.prev,
+.page-number,
+.next,
+.space {
+    display: flex;
+}
+
+.prev,
+.page-number,
+.next {
+    padding: 10px 5px;
+    font-size: 18px
+}
+
+.pager {
+    margin: 52px 52px 0;
+    z-index: 1;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+}
+
+.space {
+    padding: 10px 0;
+}
+
+@media screen and (max-width:782px) {
+    .pager {
+        line-height: 35px;
+        position: relative;
+        bottom: 0;
+        left: 0;
+        margin: 22px;
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        text-align: center;
+        letter-spacing: 1px;
+    }
+    .prev,
+    .page-number,
+    .next {
+        padding: 10px;
+    }
+    .space {
+        padding: 10px 0;
+    }
+}

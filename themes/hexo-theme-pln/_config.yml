@@ -1,0 +1,22 @@
+menu:
+  主页: /
+  归档: /archives
+
+logo: '^_^"'
+
+more:
+  #About Me: /about.html
+  GitHub: https://github.com/eijil/
+ 
+
+about:
+  title: Guestbook
+  link: https://frankenstein-ashen.now.sh/
+
+show_toc_bool: false
+
+disqus_shortname: eijil
+
+excerpt_num: 150
+
+footer_info: © eijil 2015-2021

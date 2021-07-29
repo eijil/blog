@@ -7,15 +7,13 @@ title: blog
 subtitle: hello world
 description: hello world
 author: JIEL
-language: Zh-cn
+language:
 timezone:
 
-more:
-  Github: https://github.com
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://eijil.github.io/
 root: /
 permalink: :year/:month/:title/
 permalink_defaults:
@@ -39,7 +37,7 @@ skip_render:
 new_post_name: :title.md # File name of new posts
 default_layout: post
 titlecase: true # Transform title into titlecase
-external_link: true # Open external links in new tab
+
 filename_case: 0
 render_drafts: false
 post_asset_folder: true
@@ -72,11 +70,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: pln
+theme: hexo-theme-pln
 
-# menu:
-#   Home: /
-#   Archives: /archives
+menu:
+  主页: /
+  归档: /archives
 
 # 在归档页面显示所有文章
 # 需要上面安装的 hexo-generator-archive 插件支持
@@ -91,8 +89,3 @@ archive_generator:
 deploy:
   type: git
   repo: git@github.com:eijil/eijil.github.io.git
-
-
-  search:
-  path: search.xml
-  field: all

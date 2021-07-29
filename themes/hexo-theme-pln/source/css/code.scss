@@ -1,0 +1,124 @@
+table {
+    border-spacing: 0;
+}
+
+figure {
+    margin: 0;
+    overflow-x: auto;
+}
+
+tr {
+    display: flex;
+}
+
+td {
+    display: block;
+}
+
+td.gutter {
+    flex-shrink: 0;
+    flex-grow: 0;
+    text-align: right;
+    pre {
+        color: hsl(0, 0%, var(--l-45));
+    }
+}
+td.code {
+    flex-grow: 1;
+    flex-shrink: 0;
+}
+
+code,
+pre {
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+pre {
+    font-size: 14px;
+    line-height: 2em;
+    margin: 0;
+    padding: 0 15px;
+    border: 0;
+    tab-size: 2;
+    color: hsl(0, 0%, var(--l-35));
+    background: transparent;
+    background-size: auto 4em;
+    background-origin: content-box;
+    background-image: linear-gradient(hsl(0, 0%, var(--l-95)) 50%, hsl(0, 0%, var(--l-100)) 0);
+    overflow-x: auto;
+    .comment {
+        color: hsl(0, 0%, var(--l-45));
+    }
+    .line {
+        height: 30px;
+    }
+}
+
+code {
+    word-wrap: break-word;
+    line-height: 2em;
+    font-size: .97em;
+    color: hsl(0, 0%, var(--l-35));
+    background: hsl(0, 0%, var(--l-95));
+}
+
+
+
+pre .variable,
+pre .attribute,
+pre .tag,
+pre .regexp,
+pre .ruby .constant,
+pre .xml .tag .title,
+pre .xml .pi,
+pre .xml .doctype,
+pre .html .doctype,
+pre .css .id,
+pre .css .class,
+pre .css .pseudo {
+    color: hsl(var(--theme-hs) var(--l-45));
+}
+
+pre .keyword,
+pre .javascript .function {
+    color: hsl(var(--theme-hs) var(--l-45));
+}
+
+pre .number,
+pre .preprocessor,
+pre .built_in,
+pre .literal,
+pre .params,
+pre .constant {
+    color: hsl(var(--green-hs) var(--l-45));
+}
+
+pre .ruby .class .title,
+pre .css .rules .attribute {
+    color: hsl(var(--green-hs) var(--l-45));
+}
+
+pre .title,
+pre .css .hexcolor {
+    color: hsl(var(--green-hs) var(--l-45));
+}
+
+pre .string,
+pre .value,
+pre .inheritance,
+pre .header,
+pre .ruby .symbol,
+pre .xml .cdata {
+    color: hsl(var(--green-hs) var(--l-45));
+}
+
+pre .function,
+pre .python .decorator,
+pre .python .title,
+pre .ruby .function .title,
+pre .ruby .title .keyword,
+pre .perl .sub,
+pre .javascript .title,
+pre .coffeescript .title {
+    color: hsl(0, 0%, var(--l-30));
+}

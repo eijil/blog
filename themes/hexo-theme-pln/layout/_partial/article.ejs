@@ -1,0 +1,47 @@
+<% if (index) { %>
+<li class="post-item">
+  <%- partial('post/title') %>
+  <div class="excerpt">
+  <% if (item.excerpt){ %>
+    <%- item.excerpt %>
+  <% } else { %>
+    <%- truncate(strip_html(item.content).trim(), {
+      length:theme.excerpt_num,
+      omission: '...'
+    }) %>
+  <% } %>
+  </div>
+  <div class="index-meta">
+    <%- partial('post/meta', {
+      item: item,
+      width: 2
+    }) %>
+  </div>
+</li>
+<% } else { %>
+
+  <article class="standard <%= item.layout %>">
+    <div class="title">
+      <%- partial('post/title') %>
+    </div>
+    <div class="page-meta center">
+      <%- partial('post/meta', {
+        item: item,
+        width: 1
+      }) %>
+    </div>
+    <hr>
+    <% if (theme.show_toc_bool) {  %>
+      <%- toc(page.content, {list_number: false}) %>
+    <% } %>
+    <div class="picture-container">
+      <% if (item.photos && item.photos.length){ %>
+        <%- partial('post/gallery', {item: item}) %>
+      <% } %>
+    </div>
+    <%- item.content %>
+    <hr>
+  </article>
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<% } %>
+<%- partial('post/comment') %>

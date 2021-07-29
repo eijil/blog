@@ -1,0 +1,23 @@
+!function (t, e) { "object" == typeof exports && "undefined" != typeof module ? module.exports = e() : "function" == typeof define && define.amd ? define(e) : t.zoom = e() }(this, function () {
+  "use strict"; var t = function () { return document.documentElement.clientWidth }, e = function () { return document.documentElement.clientHeight }, o = function (t, e) { this.img = t, this.preservedTransform = t.style.transform, this.wrap = null, this.overlay = null, this.offset = e }; o.prototype.forceRepaint = function () { this.img.offsetWidth }, o.prototype.zoom = function () { var t = new function (t, e) { this.w = t, this.h = e }(this.img.naturalWidth, this.img.naturalHeight); this.wrap = document.createElement("div"), this.wrap.classList.add("zoom-img-wrap"), this.img.parentNode.insertBefore(this.wrap, this.img), this.wrap.appendChild(this.img), this.img.classList.add("zoom-img"), this.img.setAttribute("data-action", "zoom-out"), this.overlay = document.createElement("div"), this.overlay.classList.add("zoom-overlay"), document.body.appendChild(this.overlay), this.forceRepaint(); var e = this.calculateScale(t); this.forceRepaint(), this.animate(e), document.body.classList.add("zoom-overlay-open") }, o.prototype.calculateScale = function (o) { var i = o.w / this.img.width, n = t() - this.offset, s = e() - this.offset, r = o.w / o.h, a = n / s; return o.w < n && o.h < s ? i : r < a ? s / o.h * i : n / o.w * i }, o.prototype.animate = function (o) { var i, n, s, r, a = (i = this.img, n = i.getBoundingClientRect(), s = document.documentElement, r = window, { top: n.top + r.pageYOffset - s.clientTop, left: n.left + r.pageXOffset - s.clientLeft }), c = window.pageYOffset, d = t() / 2, m = c + e() / 2, l = "scale(" + o + ")", u = "translate3d(" + (d - (a.left + this.img.width / 2)) + "px, " + (m - (a.top + this.img.height / 2)) + "px, 0px)"; this.img.style.transform = l, this.wrap.style.transform = u }, o.prototype.dispose = function () { null !== this.wrap && null !== this.wrap.parentNode && (this.img.classList.remove("zoom-img"), this.img.setAttribute("data-action", "zoom"), this.wrap.parentNode.insertBefore(this.img, this.wrap), this.wrap.parentNode.removeChild(this.wrap), document.body.removeChild(this.overlay), document.body.classList.remove("zoom-overlay-transitioning")) }, o.prototype.close = function () { var t, e, o, i, n = this; document.body.classList.add("zoom-overlay-transitioning"), this.img.style.transform = this.preservedTransform, 0 === this.img.style.length && this.img.removeAttribute("style"), this.wrap.style.transform = "none", t = this.img, e = "transitionend", o = function () { n.dispose(), document.body.classList.remove("zoom-overlay-open") }, i = function (t) { t.target.removeEventListener(e, i), o() }, t.addEventListener(e, i) };
+  /**
+   * Pure JavaScript implementation of zoom.js.
+   *
+   * Original preamble:
+   * zoom.js - It's the best way to zoom an image
+   * @version v0.0.2
+   * @link https://github.com/fat/zoom.js
+   * @license MIT
+   *
+   * Needs a related CSS file to work. See the README at
+   * https://github.com/nishanths/zoom.js for more info.
+   *
+   * This is a fork of the original zoom.js implementation by @fat.
+   * Copyrights for the original project are held by @fat. All other copyright
+   * for changes in the fork are held by Nishanth Shanmugham.
+   *
+   * Copyright (c) 2013 @fat
+   * The MIT License. Copyright © 2016 Nishanth Shanmugham.
+   */
+  var i = null, n = 80, s = -1, r = -1; function a() { -1 === s && (s = window.pageYOffset), Math.abs(s - window.pageYOffset) >= 40 && u() } function c(t) { 27 === t.keyCode && u() } function d(t) { var e = t.touches[0]; null !== e && (r = e.pageY, t.target.addEventListener("touchmove", m)) } function m(t) { var e = t.touches[0]; null !== e && Math.abs(e.pageY - r) > 10 && (u(), t.target.removeEventListener("touchmove", m)) } function l() { u() } function u(t) { null !== i && (t ? i.dispose() : i.close(), document.removeEventListener("scroll", a), document.removeEventListener("keyup", c), document.removeEventListener("touchstart", d), document.removeEventListener("click", l, !0), i = null) } function h(e) { document.body.classList.contains("zoom-overlay-open") || (e.metaKey || e.ctrlKey ? window.open(e.target.getAttribute("data-original") || e.target.src, "_blank") : e.target.width >= t() - n || (u(!0), (i = new o(e.target, n)).zoom(), document.addEventListener("scroll", a), document.addEventListener("keyup", c), document.addEventListener("touchstart", d), document.addEventListener("click", l, !0))) } return function (t) { return t.setAttribute("data-action", "zoom"), t.addEventListener("click", h), function () { return t.removeEventListener("click", h) } }
+});

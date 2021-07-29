@@ -1,4 +1,5 @@
 ---
+layout: post
 title: 使用GPU.js提升Javascript性能
 ---
 
