@@ -53,7 +53,7 @@ Enter same passphrase again: [Type passphrase again]
 
 进入`~/.ssh`目录，使用vi或者你喜欢的编辑器添加`config`文件,保存以下内容
 
-```
+``` bash
 Host github.com
 HostName github.com
 PreferredAuthentications publickey
