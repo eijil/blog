@@ -7,7 +7,7 @@ title: blog
 subtitle: hello world
 description: hello world
 author: JIEL
-language:
+language: zh-CN
 timezone:
 
 
@@ -43,11 +43,20 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+
+
+
+#base16/solarized-light
+#highlightjs: base16/atelier-estuary-light
+
 highlight:
   enable: true
-  auto_detect: true
-  wrap: false
-
+  line_number: true
+# prismjs:
+#   enable: true
+#   preprocess: true
+#   line_number: true
+#   tab_replace: ''
 
 
 # Category & Tag
@@ -89,3 +98,4 @@ archive_generator:
 deploy:
   type: git
   repo: git@github.com:eijil/eijil.github.io.git
+  branch: master

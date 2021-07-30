@@ -32,9 +32,18 @@
   <meta property="og:site_name" content="<%= config.title %>"/>
   <link href="/apple-touch-icon-precomposed.png" sizes="180x180" rel="apple-touch-icon-precomposed">
   <link rel="alternate" href="<% if (theme.rss){ %><%- config.root %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="<%= config.title %>" type="application/atom+xml">
-  <link rel="stylesheet" href="<%- config.root %>css/m.min.css">
+  <link rel="stylesheet" href="<%- config.root %>css/main.css">
   <link rel="stylesheet" href="<%- config.root %>css/disqusjs.css">
   <link rel="icon" type="image/x-icon" href="<%- config.root %>favicon.ico">
+
+  <!-- <% if (theme.highlightjs) { %>
+    <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.1.0/styles/<%- theme.highlightjs %>.min.css">
+    <% } else { %>
+      <link rel="stylesheet" href="https://unpkg.com/@highlightjs/cdn-assets@11.1.0/styles/default.min.css">
+      <% } %>
+  <script src="https://unpkg.com/@highlightjs/cdn-assets@11.1.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> -->
+
   <% if (theme.latex){ %><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><% } %>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159221418-2"></script>

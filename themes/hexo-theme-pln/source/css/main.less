@@ -1,31 +1,35 @@
-@import "navigator";
+ @import "navigator";
 @import "posts";
 @import "pager";
 @import "footer";
-@import "code";
+ @import "code";
 @import "animation";
 @import "toc";
 @import "zoom-image";
 
-$big: 48px;
-$mid: 26px;
-$small: 18px;
+@big: 48px;
+@mid: 26px;
+@small: 18px;
 
 :root {
     --theme-hs: 204 62%;
     --green-hs: 180 33%;
-    @for $i from 0 through 20 {
-        --l-#{$i * 5}: #{$i * 5}%;
+      @i:0;
+    .loop(@i) when(@i<20){
+        @num : @i *5;
+        --l-@{num}: ~'@{num}%';
+        .loop(@i+1)
     }
+    .loop(@i)
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        @for $i from 0 through 20 {
-            --l-#{$i * 5}: #{100 - $i * 5}%;
-        }
-    }
-}
+// @media (prefers-color-scheme: dark) {
+//     :root {
+//         @for $i from 0 through 20 {
+//             --l-#{$i * 5}: #{100 - $i * 5}%;
+//         }
+//     }
+// }
 
 ::selection,
 ::-moz-selection,
@@ -54,11 +58,11 @@ h5,
 h6 {
     font-weight: bold;
     margin: 2.36em 0 1em;
-    font-size: $mid;
+    font-size: @mid;
 }
 
 h1 {
-    font-size: $big;
+    font-size: @big;
 }
 h3 {
     font-weight: 500;
@@ -101,7 +105,7 @@ article,figure,footer,nav,section {
 
 body {
     overflow-x: hidden;
-    font-size: $small;
+    font-size: @small;
     font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, "PingFang SC",STHeiti,"Helvetica Neue","Microsoft Yahei",Tahoma,Simsun,sans-serif;
     background-color: hsl(var(--green-hs) var(--l-100));
     margin: 0;
@@ -135,7 +139,7 @@ p,
 
 .navbar-brand,
 .right-foot {
-    font-size: $small;
+    font-size: @small;
 }
 
 .behind,
@@ -203,7 +207,7 @@ ul.posts {
     color: hsl(0, 0%, var(--l-55));
     line-height: 1;
     .description {
-        font-size: $mid;
+        font-size: @mid;
         color: hsl(0, 0%, var(--l-55));
         font-weight: 300;
         // opacity: .5;
@@ -227,7 +231,7 @@ ul.posts {
 
 .archive-num,
 .page-meta {
-    font-size: $small;
+    font-size: @small;
     a {
         color: hsl(var(--theme-hs) var(--l-45));
     }
@@ -253,14 +257,14 @@ ul.posts {
 }
 
 .archive-time {
-    font-size: $small;
+    font-size: @small;
     width: 40%;
     margin-right: 20px;
     text-align: right;
 }
 
 .archive-detail {
-    font-size: $small;
+    font-size: @small;
     width: 90%;
     padding: 0 20px;
     word-wrap: break-word;
@@ -279,7 +283,7 @@ blockquote {
     p {
         text-indent: 0;
         line-height: 1.6;
-        font-size: $mid;
+        font-size: @mid;
     }
 }
 
@@ -367,7 +371,7 @@ time,
 
 p,
 .post li {
-    font-size: $small;
+    font-size: @small;
     line-height: 1.9em;
 }
 
@@ -402,7 +406,7 @@ hr + .echo {
 .dsqjs-footer,
 .dsqjs-no-comment {
     line-height: 1.6 !important;
-    font-size: $small !important;
+    font-size: @small !important;
     // margin: 30px 0 !important;
 }
 
@@ -419,7 +423,7 @@ hr + .echo {
         opacity: 0;
     }
     .archive-title {
-        font-size: $big;
+        font-size: @big;
     }
     ul.posts {
         padding: 52px 26px 0;

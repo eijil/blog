@@ -3,6 +3,9 @@ layout: post
 title: "use ssh"
 date: "2016-06-02 15:51"
 ---
+
+记录ssh的使用
+
 # SSH的使用
 
 SSH是一种连接服务器的方式，使用SSH可以不必每次都输入用户名和密码
