@@ -6,7 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   <meta name="referrer" content="unsafe-url">
-  <meta name="google-site-verification" content="<%- config.google_analytics %>" />
+
   <%
     var title = '';
     if (page.current > 1) title = 'P' + page.current + ' ' + theme.logo;
@@ -45,13 +45,7 @@
   <script>hljs.initHighlightingOnLoad();</script> -->
 
   <% if (theme.latex){ %><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async></script><% } %>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-159221418-2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-159221418-2');
-  </script>
+
+
   <script src="<%- config.root %>js/disqus.js"></script>
 </head>
